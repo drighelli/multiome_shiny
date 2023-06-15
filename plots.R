@@ -14,7 +14,7 @@ plotMultiomeSample <- function(sce, gene, sampleid, ctid)
     colname <- "SingleR"
     ggs <- plotTSNE(sce, colour_by=colname) + ggtitle(paste0(sampleid, " ", colname))
     gexg <- as.vector(logcounts(sce[which(rownames(sce) == gene),]))
-    colData(sce)[paste0(`gene`,"_col")] <- gex
+    colData(sce)[paste0(`gene`,"_col")] <- gexg
     sce  <- sce[,order(colData(sce)[paste0(`gene`,"_col")])]
     ggg1 <- plotTSNE(sce, colour_by=gene) + ggtitle(paste0(sampleid, " ", gene))
     
