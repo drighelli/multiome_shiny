@@ -15,7 +15,7 @@ message(red("loading data ... "))
 # mnnsce <- mnn.out
 # saveRDS(mnnsce, file="/Users/inzirio/Downloads/multiome_data/SleepMultiome_MNN.Rds")
 # mnnsce <- readRDS(file="/Users/inzirio/Downloads/multiome_data/SleepMultiome_MNN.Rds")
-load("./data/data_shiny_June23.RData")
+load("~/Downloads/multiome_data/data_shiny_June23.RData")
 names(assays(mnnsce)) <- "logcounts"
 mnnscelist <- list(WT=mnnsce[, mnnsce$condition=="WT"], SD=mnnsce[, mnnsce$condition=="SD"])
 # pseudo <- readRDS("~/Downloads/multiome_data/GEX_pseudo_filtered_edger_5_0.RDS")
@@ -35,8 +35,8 @@ ui <- navbarPage("Sleep Multiome",
                     choices=NULL),
                 selectizeInput(inputId="ct_id", label="Cell Type",
                                choices=NULL),
-                tipify(checkboxInput(inputId="mnn_id", label="MNN"),
-                       "Check to show a unified plot for all samples")
+                # tipify(checkboxInput(inputId="mnn_id", label="MNN"),
+                #        "Check to show a unified plot for all samples")
             ),
             mainPanel(
                plotOutput(outputId="plot_id_out")
