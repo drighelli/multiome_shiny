@@ -42,10 +42,15 @@ plotMultiomeSample <- function(sce, gene, sampleid, ctid)
         scale_colour_manual(values=colors) +
         scale_alpha_manual(values=alpha)
     
-    ggg3 <- plotTSNE(sce[,sce$SingleR==ctid], colour_by=gene) + 
+    ggg3 <- plotTSNE(sce[,sce[[colname]]==ctid], colour_by=gene) + 
         ggtitle(paste(sampleid, ctid, gene))
     
-    gg <- ggarrange(ggs, ggg3, ggg1, ggg2)
+    ## doublets
+    ## 
+    gdb1 <- plotTSNE(sce[,sce[[colname]]==ctid], colour_by="dbl.calls") + ggtitle(paste0(sampleid, ctid, " dbl calls"))
+    gdb2 <- plotTSNE(sce[,sce[[colname]]==ctid], colour_by="dbl.scores") + ggtitle(paste0(sampleid, ctid, " dbl scores"))
+    
+    gg <- ggarrange(ggs, gdb1, gdb2, ggg3, ggg1, ggg2)
     return(gg)
     # ggsave(filename=paste0("plots/tSNE_", names(scelist)[i], ".pdf"), plot=gg, device="pdf")
 }
