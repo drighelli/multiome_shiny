@@ -47,10 +47,17 @@ plotMultiomeSample <- function(sce, gene, sampleid, ctid)
     
     ## doublets
     ## 
-    gdb1 <- plotTSNE(sce[,sce[[colname]]==ctid], colour_by="dbl.calls") + ggtitle(paste0(sampleid, ctid, " dbl calls"))
-    gdb2 <- plotTSNE(sce[,sce[[colname]]==ctid], colour_by="dbl.scores") + ggtitle(paste0(sampleid, ctid, " dbl scores"))
+    if (!(sampleid %in% c("WT", "SD"))) 
+    {
+        gdb1 <- plotTSNE(sce[,sce[[colname]]==ctid], colour_by="dbl.calls") + ggtitle(paste0(sampleid, ctid, " dbl calls"))
+        gdb2 <- plotTSNE(sce[,sce[[colname]]==ctid], colour_by="dbl.scores") + ggtitle(paste0(sampleid, ctid, " dbl scores"))
+        gg <- ggarrange(ggs, gdb1, gdb2, ggg3, ggg1, ggg2)
+    } else {
+        gg <- ggarrange(ggs, ggg3, ggg1, ggg2)
+    }
     
-    gg <- ggarrange(ggs, gdb1, gdb2, ggg3, ggg1, ggg2)
+    
+    
     return(gg)
     # ggsave(filename=paste0("plots/tSNE_", names(scelist)[i], ".pdf"), plot=gg, device="pdf")
 }
