@@ -16,6 +16,8 @@ message(red("loading data ... "))
 # saveRDS(mnnsce, file="/Users/inzirio/Downloads/multiome_data/SleepMultiome_MNN.Rds")
 # mnnsce <- readRDS(file="/Users/inzirio/Downloads/multiome_data/SleepMultiome_MNN.Rds")
 load("~/Downloads/multiome_data/data_shiny_Dec23.RData")
+mnnscelist <- scelistcond
+rm(scelistcond)
 # names(assays(mnnsce)) <- "logcounts"
 # mnnscelist <- list(WT=mnnsce[, mnnsce$condition=="WT"], SD=mnnsce[, mnnsce$condition=="SD"])
 # pseudo <- readRDS("~/Downloads/multiome_data/GEX_pseudo_filtered_edger_5_0.RDS")
