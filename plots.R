@@ -11,7 +11,7 @@ plotMultiomeSample <- function(sce, gene, sampleid, ctid)
     
     # colname <- "Azimuth"
     # gga <- plotTSNE(sce, colour_by=colname) + ggtitle(paste0(sampleid, " ", colname))
-    colname <- "SingleR"
+    colname <- "labels"
     ggs <- plotTSNE(sce, colour_by=colname) + ggtitle(paste0(sampleid, " ", colname))
     gexg <- as.vector(logcounts(sce[which(rownames(sce) == gene),]))
     colData(sce)[paste0(`gene`,"_col")] <- gexg

@@ -21,8 +21,8 @@ names(scelistdbl) <- names(scelist)
 gglist <- lapply(seq_along(scelistdbl), function(i)
 {
     sce <- scelistdbl[[i]]
-    gdb1 <- plotTSNE(sce[,sce$SingleR=="CA1-do"], colour_by="dbl.calls") + ggtitle(names(scelistdbl)[i])
-    gdb2 <- plotTSNE(sce[,sce$SingleR=="CA1-do"], colour_by="dbl.scores") + ggtitle(names(scelistdbl)[i])
+    gdb1 <- plotTSNE(sce[,sce$labels=="CA1-do"], colour_by="dbl.calls") + ggtitle(names(scelistdbl)[i])
+    gdb2 <- plotTSNE(sce[,sce$labels=="CA1-do"], colour_by="dbl.scores") + ggtitle(names(scelistdbl)[i])
     ggarrange(gdb1, gdb2)
 })
 
