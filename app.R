@@ -13,7 +13,7 @@ message(red("loading data ... "))
 # save(scelist, mnnsce, file="./data/data_shiny_June23.RData")
 # load("/Users/inzirio/Downloads/multiome_data/SleepMultiome_MNN.RData")
 # mnnsce <- mnn.out
-# saveRDS(mnnsce, file="/Users/inzirio/Downloads/multiome_data/SleepMultiome_MNN.Rds")
+# saveRDS(mnnsce, file="/Users/inzirio/Downloads/multiome_data/SleepMultiome_MNN.Rds")  
 # mnnsce <- readRDS(file="/Users/inzirio/Downloads/multiome_data/SleepMultiome_MNN.Rds")
 load("~/Downloads/multiome_data/data_shiny_Dec23.RData")
 # names(assays(mnnsce)) <- "logcounts"
